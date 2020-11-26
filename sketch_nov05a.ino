@@ -105,14 +105,14 @@ void loop()
 
   if ( BT.available() ) {
     StaticJsonDocument<200> doc;
-    // char json =  BT.read();
+    char json =  BT.read();
     char json[] =
       "{\"sensor\":\"gps\",\"time\":1351824120,\"data\":[48.756080,2.302038]}";
      
     DeserializationError error = deserializeJson(doc, json);
 
     if (error) {
-      Serial.print(F("deserializeJson() failed: "));
+      Serial.print("deserializeJson() failed: ");
       Serial.println(error.f_str());
       return;
     }
